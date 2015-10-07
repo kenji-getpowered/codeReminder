@@ -16,6 +16,8 @@
 #z::Run www.autohotkey.com
 
 #Include %A_LineFile%\..\AutoHotkeyJava.ahk
+#Include %A_LineFile%\..\AutoHotkeySql.ahk
+#Include %A_LineFile%\..\AutoHotkeyUnix.ahk
 
 ^!n::
 IfWinExist Untitled - Notepad
