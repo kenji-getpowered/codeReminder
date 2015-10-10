@@ -27,8 +27,14 @@ return
 
 F11::^c
 F12::^v
-F1::^c
-F2::^v
+F3::
+send {F2}
+Send ^c
+return
+F4::
+send {F2}
+Send ^v
+return
 
 ; Texte de remplacement
 ::cdlt::Cordialement,
