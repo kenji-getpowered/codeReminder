@@ -13,41 +13,9 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
-#z::Run www.autohotkey.com
 
-#Include %A_LineFile%\..\AutoHotkeyJava.ahk
-#Include %A_LineFile%\..\AutoHotkeySql.ahk
-#Include %A_LineFile%\..\AutoHotkeyUnix.ahk
+::aze::teeeeeeeeeeeeeeeeeeeeeest,
 
-^!n::
-IfWinExist Untitled - Notepad
-    WinActivate
-else
-    Run Notepad
-return
-
-
-F11::^c
-F12::^v
-F3::
-send {F2}
-Send ^c
-return
-F4::
-send {F2}
-Send ^v
-return
-
-; Texte de remplacement
-::cdlt::Cordialement,
-
-; long text replacement
-;(
-;Any text between the top and bottom parentheses is treated literally, including commas and percent signs.
-;By default, the hard carriage return (Enter) between the previous line and this one is also preserved.
-;    By default, the indentation (tab) to the left of this line is preserved.
-;See continuation section for how to change these default behaviors.
-;)
 
 ; Note: From now on whenever you run AutoHotkey directly, this script
 ; will be loaded.  So feel free to customize it to suit your needs.
