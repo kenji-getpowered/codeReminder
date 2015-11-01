@@ -16,8 +16,6 @@
 #z::Run www.autohotkey.com
 
 #Include %A_LineFile%\..\AutoHotkeyJava.ahk
-#Include %A_LineFile%\..\AutoHotkeySql.ahk
-#Include %A_LineFile%\..\AutoHotkeyUnix.ahk
 
 ^!n::
 IfWinExist Untitled - Notepad
@@ -27,8 +25,8 @@ else
 return
 
 
-F11::^c
-F12::^v
+F1::^c
+F2::^v
 F3::
 send {F2}
 Send ^c
