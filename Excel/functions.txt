@@ -1,0 +1,2 @@
+to lowerCamelCase (FR) java coding convention
+=SUBSTITUE(MINUSCULE(STXT(G27;1;1))&STXT(G27;2;NBCAR(G27)-1);"_";"")
