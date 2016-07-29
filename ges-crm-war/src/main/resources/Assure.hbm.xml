@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="fr.generali.es.gescrm.bean.Assure">
+        <composite-id>
+            <key-property name="identifiant" column="ID_UTIL"  />
+            <key-property name="prod_abrev" column="prod_abrev"  />
+        </composite-id>
+        <property name="identifiantCreelia" column="UTIL_IDENTIFIANT" type="long" />
+        <property name="nom" column="UTIL_NOM" type="string" />
+        <property name="prenom" column="UTIL_PRENOM" type="string" />
+        <property name="reseau" column="rese_nom_long" type="string" />
+        <property name="idReseau" column="ID_RESEAU_DISTRIB" type="string" />
+        <property name="nomEntrepise" column="entr_nom" type="string" />
+        <property name="cindCodePostal" column="cind_cod_postal" type="string" />
+        <property name="cindVille" column="cind_ville" type="string" />
+        <property name="montantTotalAvoirs"    column="sigl_avoir_tot" type="string" />
+        <property name="codeAgent" column="AGT_CD" type="string" />
+        <property name="idCivilite" column="CIVI_LIBELLE" type="string" />
+        <property name="regime" column="regime" type="string" />
+        <property name="statutFamilial" column="situation" type="string" />
+        <property name="lieuNaissance" column="UTIL_LIEU_NAIS" type="string" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,74 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:annotation-config />
+    <bean id="assureService" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="fr.generali.es.gescrm.service.AssureService" />
+    </bean>
+    <bean id="entrepriseService" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="fr.generali.es.gescrm.service.EntrepriseService" />
+    </bean>
+    <bean id="contratService" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="fr.generali.es.gescrm.service.ContratService" />
+    </bean>
+    <bean id="contactService" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="fr.generali.es.gescrm.service.ContactService" />
+    </bean>
+    <bean id="contactSummaryService" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="fr.generali.es.gescrm.service.ContactSummaryService" />
+    </bean>
+    <bean id="gef2Client" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="fr.generali.ccj.comp.securite.gef2.client.Gef2Client" />
+    </bean>
+    <context:component-scan base-package="fr.generali.es.gescrm.controller" />
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <mvc:resources mapping="/resources/**" location="/dist/"  cache-period="0" />
+    <!--cache-period="31556926"/>-->
+    <mvc:annotation-driven />
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="classpath:/jdbc.properties" />
+
+    <bean id="dataSource"
+          class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.databaseurl}" p:username="${jdbc.username}"
+          p:password="${jdbc.password}" />
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configurationClass">
+            <value>org.hibernate.cfg.AnnotationConfiguration</value>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <tx:annotation-driven />
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+</beans>

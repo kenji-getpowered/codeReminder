@@ -1,0 +1,64 @@
+<beans xmlns:secu="http://www.springframework.org/schema/security"
+             xmlns="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:p="http://www.springframework.org/schema/p"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!--<http auto-config="true">-->
+    <secu:http auto-config="true" use-expressions="true">
+        <secu:intercept-url pattern="/resources/**" access="permitAll()" />
+        <secu:intercept-url pattern="/login*" access="permitAll()" />
+        <secu:intercept-url pattern="/**" access="isAuthenticated()"/>
+
+        <secu:form-login
+                login-page='/login'
+                login-processing-url="/perform_login"
+                default-target-url="/index"
+                authentication-failure-url="/login?error=true"
+                always-use-default-target="true"/>
+        <secu:logout invalidate-session="true" logout-success-url="/login" logout-url="/logout" />
+        <!--<logout logout-success-url="/login" />-->
+        <secu:custom-filter ref="gefTransitionAuthenticationFilter" after="PRE_AUTH_FILTER"/>
+    </secu:http>
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+            p:basename="org/springframework/security/messages"/>
+
+    <!--<bean id="localeChangeInterceptor"-->
+          <!--class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">-->
+        <!--<property name="paramName" value="lang" />-->
+    <!--</bean>-->
+
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.SessionLocaleResolver"
+          p:defaultLocale="fr"/>
+          <!--CookieLocaleResolver">-->
+
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+                p:location="classpath:security.properties" p:order="1" p:ignoreUnresolvablePlaceholders="true"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="classpath:ges-crm-security.properties" p:order="2" p:ignoreUnresolvablePlaceholders="true"/>
+
+    <import resource="classpath*:/fr/generali/ccj/comp/securite/ihm/applicationContext-comp-securite.xml"/>
+
+
+    <!--<authentication-manager>-->
+        <!--<ldap-authentication-provider-->
+                <!--user-search-base="ou=USERS"-->
+                <!--user-search-filter="cn={0}"-->
+                <!--group-search-base="ou=groups,ou=GES,ou=Applications"-->
+                <!--group-search-filter="member={0}">-->
+        <!--</ldap-authentication-provider>-->
+
+    <!--</authentication-manager>-->
+
+    <!--&lt;!&ndash; Using local ldap for test purpose&ndash;&gt;-->
+    <!--&lt;!&ndash;<ldap-server ldif="file://D:\tmp\ldif\ldap_generali.ldif" root="o=GENERALI"/>&ndash;&gt;-->
+    <!--<ldap-server url="ldap://ldap-int.groupe.generali.fr:389/o=GENERALI" manager-dn="cn=GESproxy,o=Structures" manager-password="GES$proxy" />-->
+</beans>

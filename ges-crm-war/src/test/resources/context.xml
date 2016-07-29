@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <!--<jee:jndi-lookup id="dataSource" jndi-name="java:jdbc/GesDataSource"  resource-ref="true" />-->
+
+    <!--<bean id="dataSource"-->
+    <!--class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"-->
+    <!--p:driverClassName="${jdbc.driverClassName}"-->
+    <!--p:url="${jdbc.databaseurl}"-->
+    <!--p:username="${jdbc.username}"-->
+    <!--p:password="${jdbc.password}" />-->
+
+    <!--jdbc.driverClassName=oracle.jdbc.driver.OracleDriver-->
+    <!--jdbc.dialect=org.hibernate.dialect.Oracle10gDialect-->
+    <!--jdbc.databaseurl=jdbc:oracle:thin:@ar3in222.groupe.generali.fr:1521:INSMUTI1-->
+    <!--jdbc.username=UEPSNOVI0-->
+    <!--jdbc.password=UEPSNOVI9-->
+
+    <!--jdbc.password=UEPSNOVI9-->
+    <GlobalNamingResources>
+        <Resource
+                  auth="Container"
+                  driverClass="oracle.jdbc.driver.OracleDriver"
+                  name="jdbc/GesDataSource"
+                  password="UEPSNOVI9"
+                  url="jdbc:oracle:thin:@ar3in222.groupe.generali.fr:1521:INSMUTI1"
+                  username="UEPSNOVI0"
+                  type="javax.sql.DataSource"
+                  maxActive="3"
+                  validationQuery="select 1 from dual"
+                  maxIdle="2" maxWait="10000"
+                  poolPreparedStatements="true"
+                />
+    </GlobalNamingResources>
+
+</Context>

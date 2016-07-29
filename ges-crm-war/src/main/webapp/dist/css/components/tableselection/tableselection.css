@@ -1,0 +1,169 @@
+/*
+ * Bootstrap Generali v0.0.2 forked from twitter bootstrap 3.3.2 by @fat and @mdo
+ */
+
+
+.table-optionselect {
+  border: none !important;
+  width: 100%;
+  border-collapse: collapse; }
+
+/* Cell Align */
+table.table-optionselect tr td,
+table.table-optionselect tr th {
+  text-align: center;
+  vertical-align: middle; }
+
+.table-optionselect .col-label,
+.table-optionselect agauche,
+.table-optionselect .col-blank,
+.table-optionselect .subheader td,
+.table-optionselect.col-option-left td.col-option {
+  text-align: left; }
+
+.table-optionselect .col-option.numeric,
+.table-optionselect .col-option.text-right,
+.table-optionselect.col-option-right .col-option {
+  text-align: right; }
+
+.table-optionselect tr .col-option.text-center,
+.table-optionselect .subheader td.col-option {
+  text-align: center; }
+
+.table-optionselect.col-option-left td.col-option {
+  padding-left: 2em; }
+
+.table-optionselect th.col-option,
+.table-optionselect th.col-label,
+.table-optionselect > thead:first-child > tr:first-child > th.col-option {
+  border-top: 1px solid #ADC1CC;
+  vertical-align: middle; }
+
+/* Cell blank */
+.table-optionselect .col-blank,
+.table-optionselect thead tr th.col-label {
+  filter: none;
+  background: none !important;
+  border: none !important;
+  font-weight: normal; }
+
+.table-optionselect .row-blank td {
+  border: none;
+  height: 15px; }
+
+.table-optionselect tbody + tbody {
+  /*   border-top: 1px #ADC1CC solid; */
+  border-top: none; }
+
+/* Cell Header */
+.table-optionselect th {
+  filter: none; }
+
+.table-optionselect .subheader td {
+  background: #DFE6EA; }
+
+.table-optionselect tr th.col-option {
+  color: black; }
+
+/* Cell pricefooter */
+.table-optionselect .pricefooter td,
+.table-optionselect th td {
+  background-color: #DFE6EA !important;
+  background-image: -webkit-gradient(linear, left 50%, left 100%, from(#f6f7f8), to(#d2d7d9));
+  background-image: -webkit-linear-gradient(top, #f6f7f8 50%, #d2d7d9 100%);
+  background-image: -moz-linear-gradient(top, #f6f7f8 50%, #d2d7d9 100%);
+  background-image: linear-gradient(to bottom, #f6f7f8 50%, #d2d7d9 100%);
+  background-repeat: repeat-x; }
+
+.table-optionselect .aside {
+  float: right;
+  text-align: right; }
+
+/* Selection de colonne */
+.table-optionselect .col-selection,
+.table-optionselect .row-blank .col-selection {
+  border-left: 4px solid #bae0f9;
+  border-right: 4px solid #bae0f9; }
+
+.selectable tbody:first-child tr:first-child .col-selection,
+.selectable > tr:first-child .col-selection {
+  border-top: 4px solid #BAE0F9; }
+
+.selectable tbody:last-child tr:last-child .col-selection,
+.selectable > tr:last-child .col-selection {
+  border-bottom: 4px solid #BAE0F9; }
+
+.table-optionselect .row-last .col-selection {
+  border-bottom: 4px solid #BAE0F9; }
+
+.table-optionselect no-select {
+  border: none !important; }
+
+.cell-selection {
+  background-color: #D9EAF1; }
+
+/* Enrichissement contenu du tableau */
+.table-optionselect h4 {
+  text-align: left;
+  color: #6A8899;
+  margin: 1px 0;
+  font-size: 1em;
+  font-weight: bold; }
+
+.table-optionselect th label {
+  font-weight: bold; }
+
+.table-optionselect label {
+  margin: 0; }
+
+.table-optionselect .pricefooter h5,
+.table-optionselect .pricefooter .pricetag {
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.2em; }
+
+.table-optionselect .pricefooter .legende {
+  color: #666; }
+
+.table-optionselect .col-label em {
+  display: inline-block;
+  min-width: 3em;
+  font-style: normal;
+  color: #666; }
+
+.table-optionselect input[type="radio"],
+.table-optionselect input[type="checkbox"] {
+  margin: 0 0.5em; }
+
+.table-optionselect .glyphicon {
+  color: #6A8899; }
+
+.table-optionselect .btn-add .glyphicon {
+  color: #94bf00; }
+
+/* Table toggle */
+.table-optionselect .table-toggle a {
+  display: block;
+  text-decoration: none; }
+
+/* Table links */
+.table-optionselect a {
+  text-decoration: underline; }
+
+.table-optionselect a.btn {
+  text-decoration: none; }
+
+.table-optionselect a:hover,
+.table-optionselect label:hover,
+.table-optionselect input[type="checkbox"]:hover,
+.table-optionselect input[type="radio"]:hover {
+  cursor: pointer; }
+
+.table-optionselect .unit {
+  color: #808080;
+  padding: 0 5px; }
+
+.table-optionselect td input[type='checkbox'] {
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: middle; }

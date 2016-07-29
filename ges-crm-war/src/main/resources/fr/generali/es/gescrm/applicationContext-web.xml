@@ -1,0 +1,62 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="fr.generali.es.gescrm" />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+        p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+
+	<mvc:resources mapping="/resources/**" location="/dist/"  cache-period="31556926" />
+
+	<mvc:annotation-driven />
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+        p:basename="classpath:messages"
+        p:defaultEncoding="UTF-8"/>
+
+	<!--<bean id="propertyConfigurer"-->
+		<!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"-->
+		<!--p:ignoreUnresolvablePlaceholders="true"-->
+		<!--p:location="classpath:jdbc.properties" />-->
+
+	<!--<bean id="dataSource"-->
+		<!--class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"-->
+		<!--p:driverClassName="${jdbc.driverClassName}"-->
+		<!--p:url="${jdbc.databaseurl}" p:username="${jdbc.username}"-->
+		<!--p:password="${jdbc.password}" />-->
+	<jee:jndi-lookup id="dataSource" jndi-name="java:jdbc/GesDataSource"  resource-ref="true" />
+
+    <util:properties id="hibernateProperties">
+        <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+        <prop key="hibernate.show_sql">true</prop>
+    </util:properties>
+
+    <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+    p:dataSource-ref="dataSource"
+    p:configLocation="classpath:hibernate.cfg.xml"
+    p:configurationClass="org.hibernate.cfg.Configuration"
+    p:hibernateProperties-ref="hibernateProperties"/>
+
+	<tx:annotation-driven />
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+        p:sessionFactory-ref="sessionFactory"/>
+
+</beans>

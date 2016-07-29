@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="fr.generali.es.gescrm.bean.Contrat">
+		<id name="idContrat" column="id_contrat">
+			<generator class="native" />
+		</id>
+        <property column="prod_abrev" name="prodAbrev" type="string" />
+        <property column="PROD_CLASSE" name="prodClasse" type="string" />
+        <property column="id_produit" name="idProduit" type="string" />
+        <property column="ENTR_NOM" name="entrNom" type="string" />
+        <property column="ENTR_CODE" name="entrCode" type="string" />
+        <property column="CENT_NUM_CONTRAT" name="centNumContrat" type="string" />
+        <property column="sigl_avoir_tot" name="siglAvoirTot" type="string" />
+        <property column="id_contrat_ent" name="idContratEnt" type="string" />
+        <property column="cind_insee" name="cindInsee" type="string" />
+        <property column="cind_numero" name="cindNumero" type="string" />
+        <property column="cind_matricule" name="cindMatricule" type="string" />
+        <property column="cind_profession" name="cindProfession" type="string" />
+        <property column="cind_npai" name="cindNpai" type="string" />
+        <property column="id_csp" name="idCsp" type="string" />
+        <property column="csp_libelle" name="cspLibelle" type="string" />
+        <property column="cind_ouver_contrat" name="cindOuverContrat" type="string" />
+        <property column="cind_ferme_contrat" name="cindFermeContrat" type="string" />
+        <property column="cind_depart_ent" name="cindDepartEnt" type="string" />
+        <property column="cind_entre_ent" name="cindEntreEnt" type="string" />
+        <property column="cind_dep_retraite" name="cindDepRetraite" type="string" />
+        <property column="cind_adr1" name="cindAdr1" type="string" />
+        <property column="cind_adr2" name="cindAdr2" type="string" />
+        <property column="cind_adr3" name="cindAdr3" type="string" />
+        <property column="cind_cod_postal" name="cindCodPostal" type="string" />
+        <property column="cind_ville" name="cindVille" type="string" />
+        <property column="cind_pays" name="cindPays" type="string" />
+        <!--column="cind_usmaj") private Date  cindUsmaj" type="string" />-->
+        <!--column="cind_dtmaj") private Date cindDtmaj" type="string" />-->
+        <property column="id_reseau_distrib" name="idReseauDistrib" type="string" />
+        <property column="CIND_NON_ASSUJETI_TAXE" name="cindNonAssujetiTaxe" type="string" />
+        <property column="CIND_ARB_GRATUIT" name="cindArbGratuit" type="string" />
+        <property column="UTIL_AUTO_CROSSELLING" name="utilAutoCrosselling" type="string" />
+        <property column="UTIL_AUTO_RELANCE" name="utilAutoRelance" type="string" />
+        <property column="CENT_AUTO_CROSSELLING" name="centAutoCrosselling" type="string" />
+        <property column="CENT_AUTO_RELANCE" name="centAutoRelance" type="string" />
+        <property column="AGT_ID" name="agtId" type="string" />
+        <property column="AGT_CD" name="agtCd" type="string" />
+        <property column="AGT_PRENOM" name="agtPrenom" type="string" />
+        <property column="AGT_NOM" name="agtNom" type="string" />
+        <property column="ENTR_CODE_CREELIA" name="entrCodeCreelia" type="string" />
+        <property column="REF_CONTRAT_CREELIA" name="refContratCreelia" type="string" />
+        <property column="rese_nom_long" name="nomReseau" type="string" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="fr.generali.es.gescrm.bean.Contact">
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+        <property column="DOSSIER" name="dossier" type="string" />
+        <property column="ACTION" name="action" type="string" />
+        <property column="IDACTION" name="idaction" type="string" />
+        <property column="TYPE" name="type" type="string" />
+        <property column="LIBTYPE" name="libtype" type="string" />
+        <property column="MOTIF" name="motif" type="string" />
+        <property column="SENS" name="sens" type="string" />
+        <property column="COMMENTAIRE" name="commentaire" type="string" />
+        <property column="AGENT_INITIATEUR" name="agentInitiateur" type="string" />
+        <!--<property // @TODO Remplacer par des dates-->
+        <property column="DATE_CREATION" name="dateCreation" type="string" />
+        <property column="AGENT_AFFECTE" name="agentAffecte" type="string" />
+        <!--<property // @TODO Remplacer par des dates-->
+        <property column="DATE_ECHEANCE" name="dateEcheance" type="string" />
+        <property column="STATUT" name="statut" type="string" />
+        <property column="IDTYPEDOSSIER" name="idtypedossier" type="string" />
+    </class>
+</hibernate-mapping>

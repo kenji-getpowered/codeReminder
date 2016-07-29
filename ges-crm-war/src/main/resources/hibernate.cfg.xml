@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database pool connection settings -->
+        <!--<property name="connection.datasource">java:jdbc/GesDataSource</property>-->
+
+        <mapping resource="Assure.hbm.xml" />
+        <mapping resource="Contact.hbm.xml" />
+        <mapping resource="ContactSummary.hbm.xml" />
+        <mapping resource="Contrat.hbm.xml" />
+        <mapping resource="Entreprise.hbm.xml" />
+        <!--<mapping resource="" />-->
+
+        <!--<mapping class="fr.generali.es.gescrm.bean.Assure" />-->
+        <!--<mapping class="fr.generali.es.gescrm.bean.Entreprise" />-->
+        <!--<mapping class="fr.generali.es.gescrm.bean.Contrat" />-->
+        <!--<mapping class="fr.generali.es.gescrm.bean.Contact" />-->
+        <!--<mapping class="fr.generali.es.gescrm.bean.ContactSummary" />-->
+
+    </session-factory>
+</hibernate-configuration>
