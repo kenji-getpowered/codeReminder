@@ -1,0 +1,90 @@
+<!doctype html>
+<html ng-app='app'>
+<head>
+<title>Todo Manager</title>
+<!-- Loading Bootstrap -->
+<link href="dist/css/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Loading Flat UI -->
+<link href="dist/css/flat-ui.css" rel="stylesheet">
+</head>
+<body>
+<h1>Todo Manager</h1>
+	<div ng-controller="taskManagerController">
+		<div class="todo col-sm-4">
+				<p class="todo-search-header">Add Task</p>
+				<ul>
+					<li>Name : <input placeholder="Enter name" type="text" ng-model="newTask.name" /></li>
+					<li>Description : <input placeholder="Enter description" type="text" ng-model="newTask.description" /></li>
+					<li>Done : <input type="checkbox" ng-model="newTask.done" /><</li>
+					<li><button ng-click="createTask(newTask)">Add</button></li>
+				</ul>
+			</div>
+		<div>
+			<div class="col-sm-4">
+				<div class="todo">
+					<div class="todo-search">
+						<input class="todo-search-field" value="" placeholder="Search" type="search" ng-model="query">
+					</div>
+					<ul>
+						<li ng-repeat="task in tasks  | filter:{name:query} track by task.id " class="">
+							<div class="todo-icon fui-user"></div>
+							<div class="">
+								<input type="text" ng-model="task.name" disabled="true" /> 
+								<input style="margin-left: 20px" type="checkbox" ng-model="task.done" ng-click="toogleTask(task)" />
+								<button class="btn btn-primary btn-lg" ng-click="viewTask(task, $index)">View</button>
+								<button class="btn btn-danger btn-lg" ng-click="deleteTask(task, $index)">Delete</button>
+							</div>
+				</div>
+				</li>
+				</ul>
+			</div>
+			<div class="col-sm-4 todo" ng-show="selectedTask">
+				<p class="todo-search-header">Task : {{selectedTask.id}} /	{{selectedTask.name}}</p>
+				<ul>
+					<li>Description : <input placeholder="Enter description"
+						type="text" ng-model="selectedTask.description" /></li>
+					<li>Done : <input type="checkbox" ng-model="selectedTask.done" /></li>
+					<li><button ng-click="editTask(selectedTask)">Update</button></li>
+				</ul>
+			</div>
+		</div>
+<!-- 			<h4>Tasks</h4> -->
+<!-- 			<table ng-show="tasks.length > 0"> -->
+<!-- 				<thead> -->
+<!-- 					<tr> -->
+<!-- 						<th>Name</th> -->
+<!-- 						<th>Done</th> -->
+<!-- 						<th></th> -->
+<!-- 					</tr> -->
+<!-- 				</thead> -->
+<!-- 				<tbody> -->
+<!-- <!-- 					 track by task.id allows to update only one line instead of the all table --> 
+<!-- 					<tr ng-repeat="task in tasks track by task.id"> -->
+<!-- 						<td> -->
+<!-- 							<input type="text" ng-model="task.name" disabled="true" /> -->
+<!-- 						</td> -->
+<!-- 						<td> -->
+<!-- 							<input style="margin-left:20px" type="checkbox" ng-model="task.done" ng-click="toogleTask(task)" /> -->
+<!-- 						</td> -->
+<!-- 						<td style="width: 70px; text-align: center;"> -->
+<!-- 							<button class="btn btn-primary btn-lg btn-block"  ng-click="viewTask(task, $index)">View</button> -->
+<!-- 						</td> -->
+<!-- 						<td> -->
+<!-- 							<button class="btn btn-danger btn-lg btn-block" ng-click="deleteTask(task, $index)">Delete</button> -->
+<!-- 						</td> --> 
+<!-- 					</tr> -->
+<!-- 				</tbody> -->
+<!-- 			</table> -->
+		</div>
+		</div>
+	</div>
+	
+        
+	<!-- Load javascript after content is loaded, improve page lodaing speed -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-resource.js"></script>
+	<script src="task.js"></script>
+</body>
+</html>
