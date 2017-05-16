@@ -1,0 +1,111 @@
+{html}
+<style type="text/css">
+* This first section is to implement nested ordered lists. Uncomment it to use. */
+ 
+/*
+.wiki-content OL { counter-reset: item }
+.wiki-content LI { display: block }
+.wiki-content LI:before { content: counters(item, ".") " "; counter-increment: item }
+*/
+ 
+/* Nested ordered HEADING lists. from h1 to h7 */
+ 
+.wiki-content h1 {
+    font-size:20pt;
+    font-style:normal;
+    font-weight:bold;
+    color: rgb(0,0,0);
+}
+ 
+.wiki-content h2,h3,h4,h5,h6 {
+    font-size:15pt !important;
+    font-style:normal !important;
+    font-weight:bold !important;
+    color: rgb(0,0,0) !important;
+}
+ 
+.wiki-content h2+p,h2 {
+    padding-left:20px !important;
+}
+ 
+.wiki-content h3+p,h3 {
+    padding-left:40px !important;
+}
+ 
+.wiki-content h4+p,h4 {
+    padding-left:60px !important;
+}
+ 
+.wiki-content h5+p,h5 {
+    padding-left:80px !important;
+}
+ 
+.wiki-content h6+p,h6 {
+    padding-left:100px !important;
+}
+ 
+BODY {
+    counter-reset: chapter;      /* Create a chapter counter scope */
+}
+.wiki-content H1:before {
+    content: counter(chapter) ". ";
+    counter-increment: chapter;  /* Add 1 to chapter */
+}
+.wiki-content H1 {
+    counter-reset: section;      /* Set section to 0 */
+}
+
+.wiki-content H2:before {
+    content: counter(chapter) "." counter(section) " ";
+    font-weight:bold;
+    counter-increment: section;
+}
+
+.wiki-content H2 {
+    counter-reset: h2section;      /* Set section to 0 */
+}
+
+.wiki-content H3:before {
+    content: counter(chapter) "." counter(section) "." counter(h2section) " ";
+    font-weight:bold;
+    counter-increment: h2section;
+}
+
+.wiki-content H3 {
+    counter-reset: h3section;
+}
+.wiki-content H4:before {
+    content: counter(chapter) "." counter(section) "." counter(h2section) "." counter(h3section) " ";
+    font-weight:bold;
+    counter-increment: h3section;
+}
+.wiki-content H4 {
+    counter-reset: h4section;
+}
+.wiki-content H5:before {
+    content: counter(chapter) "." counter(section) "." counter(h2section) "." counter(h3section)  "." counter(h4section) " ";
+    font-weight:bold;
+    counter-increment: h4section;
+}
+.wiki-content H5 {
+    counter-reset: h5section;
+}
+.wiki-content H6:before {
+    content: counter(chapter) "." counter(section) "." counter(h2section) "." counter(h3section)  "." counter(h4section) "." counter(h5section) " ";
+    font-weight:bold;
+    counter-increment: h5section;
+}
+.wiki-content H6 {
+    counter-reset: h6section;
+}
+.wiki-content H7:before {
+    content: counter(chapter) "." counter(section) "." counter(h2section) "." counter(h3section)  "." counter(h4section) "." counter(h5section) " ";
+    font-weight:bold;
+    counter-increment: h6section;
+}
+.wiki-content H7 {
+   counter-reset: h7section;
+}
+ 
+</style>
+{html}
