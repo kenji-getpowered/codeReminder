@@ -39,6 +39,9 @@ return
 ; Texte de remplacement
 ::cdlt::Cordialement,
 
+::rendre()::render()
+
+
 ; long text replacement
 ;(
 ;Any text between the top and bottom parentheses is treated literally, including commas and percent signs.
