@@ -1,0 +1,7 @@
+----------------------------------------------------
+ to lowerCamelCase (FR) java coding convention
+----------------------------------------------------
+
+-- Start : ID_UTIL  ==> End : idUtil 
+=SUBSTITUE(MINUSCULE(STXT(NOMPROPRE(E27);1;1))&STXT(NOMPROPRE(E27);2;NBCAR(NOMPROPRE(E27))-1);"_";"")
+

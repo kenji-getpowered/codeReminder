@@ -1,0 +1,7 @@
+
+
+	docker service scale next_next-servicedirectory-core-api=0 
+	docker service scale next_next-servicedirectory-core-api=1
+	
+	docker service ls
+	
